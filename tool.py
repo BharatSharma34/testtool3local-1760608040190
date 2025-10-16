@@ -1,20 +1,13 @@
-"""
-TestTool3Local - Custom Lambda Tool
-Description: test
+from tapestrysdk import image_to_text
+import json
 
-IMPORTANT: Only edit the code in the main() function below.
-The Lambda handler will be automatically appended during deployment.
-DO NOT add lambda_handler code here - it will be added automatically.
-"""
+token = "sk-u5bifw7kk-mgt8jc6l"
 
-def main(event_body):
-    a=10
-    b=40
-       
-    return {
-        "success": True,
-        "message": a+b,
-        "data": event_body
-    }
+def main(user_prompt, document,name):
+    try:
+        result = image_to_text(token, user_prompt, document, name, "describe this image in detail")
+        return result
+    except Exception as e:
+        
+        return {"error": str(e)}
 
-# You can add helper functions below
