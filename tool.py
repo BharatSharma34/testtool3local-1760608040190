@@ -9,12 +9,11 @@ DO NOT add lambda_handler code here - it will be added automatically.
 
 def main(event_body):
     a=10
-    b=20
-    c=5
+    b=40
        
     return {
         "success": True,
-        "message": a+b+c,
+        "message": a+b,
         "data": event_body
     }
 
